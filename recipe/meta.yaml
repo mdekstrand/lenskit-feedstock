@@ -10,7 +10,8 @@ source:
   sha256: 28a0d3d6a1695f57402bb24db2feff6f977929e2152c450ec70ba12e4059d0b5
 
 build:
-  number: 0
+  number: 1
+  skip: true  # [py<36 or python_impl == 'pypy']
   script: |
     # build helper library for Conda/MKL
     {{ PYTHON }} setup.py build_helper
