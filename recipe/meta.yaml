@@ -1,5 +1,5 @@
 {% set name = "lenskit" %}
-{% set version = "0.12.3" %}
+{% set version = "0.13.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,29 +7,31 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 862b17a028eea4e37d0f193deab93bcf4314fdb47b96ea3b8bf4e010d652d656
+  sha256: 35db9b633dfe6b8cc250004deb992be9e44a0870f1286e4a2bc0e2a67ea32eb5
 
 build:
   number: 0
   noarch: python
   script: |
-    # build helper library for Conda/MKL
     {{ PYTHON }} -m pip install --no-deps -vv .
 
 requirements:
   host:
-    - python >=3.6.1
+    - python >=3.7.0
     - pip
     - flit-core
   run:
-    - python >=3.6.1
+    - python >=3.7.0
     - pandas >=0.24
-    - numpy >=1.16
+    - numpy >=1.17
     - scipy >=1.2
-    - csr =0.2
-    - numba >=0.51,<0.53
+    - numba >=0.51,<0.54
     - pyarrow >=0.15
+    - cffi >=1.12.2
+    - psutil >= 5
     - binpickle >=0.3.2
+    - seedbank >=0.1.0
+    - csr >=0.3.1
   run_constrained:
     - tensorflow >=2.1
     - scikit-learn >=0.22
