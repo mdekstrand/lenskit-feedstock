@@ -17,15 +17,15 @@ build:
 
 requirements:
   host:
-    - python >=3.7.0
+    - python >=3.8.0
     - pip
     - flit-core
   run:
     - python >=3.7.0
-    - pandas >=0.24
-    - numpy >=1.17
+    - pandas >=1.0
+    - numpy >=1.19
     - scipy >=1.2
-    - numba >=0.51,<0.55
+    - numba >=0.51,<0.56
     - pyarrow >=0.15
     - cffi >=1.12.2
     - psutil >=5
@@ -33,7 +33,6 @@ requirements:
     - seedbank >=0.1.0
     - csr >=0.3.1
   run_constrained:
-    - tensorflow >=2.1
     - scikit-learn >=0.22
 
 test:
