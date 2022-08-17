@@ -1,5 +1,5 @@
 {% set name = "lenskit" %}
-{% set version = "0.14.1" %}
+{% set version = "0.14.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 3c64227608fe69cf5d808cca09c5d8894449fbfa2c4465d0379a800099010d9a
+  sha256: e243ceac965f8ed3cb224fa0a799e8057337e53dc7004939028631d305acd0b7
 
 build:
   number: 0
@@ -25,7 +25,7 @@ requirements:
     - pandas >=1.0
     - numpy >=1.19
     - scipy >=1.2
-    - numba >=0.51,<0.56
+    - numba >=0.51,<0.57
     - cffi >=1.12.2
     - psutil >=5
     - binpickle >=0.3.2
