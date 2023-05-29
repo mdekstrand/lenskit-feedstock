@@ -1,11 +1,11 @@
-About lenskit
-=============
+About lenskit-feedstock
+=======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/lenskit-feedstock/blob/main/LICENSE.txt)
 
 Home: https://lenskit.org
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/lenskit-feedstock/blob/main/LICENSE.txt)
 
 Summary: Recommender systems tools for Python
 
