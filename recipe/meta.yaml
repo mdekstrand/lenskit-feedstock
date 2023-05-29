@@ -10,7 +10,7 @@ source:
   sha256: e243ceac965f8ed3cb224fa0a799e8057337e53dc7004939028631d305acd0b7
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: |
     {{ PYTHON }} -m pip install --no-deps -vv .
@@ -22,10 +22,10 @@ requirements:
     - flit-core
   run:
     - python >=3.7.0
-    - pandas >=1.0
+    - pandas >=1.0,<2.0
     - numpy >=1.19
     - scipy >=1.2
-    - numba >=0.51,<0.57
+    - numba >=0.51
     - cffi >=1.12.2
     - psutil >=5
     - binpickle >=0.3.2
