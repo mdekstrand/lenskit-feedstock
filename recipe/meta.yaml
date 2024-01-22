@@ -17,15 +17,15 @@ build:
 
 requirements:
   host:
-    - python >=3.8.0
+    - python >=3.8.0,<3.12
     - pip
     - flit-core
   run:
     - python >=3.7.0
-    - pandas >=1.0,<2.0
+    - pandas >=1.0
     - numpy >=1.19
     - scipy >=1.2
-    - numba >=0.51
+    - numba >=0.51,<0.59
     - cffi >=1.12.2
     - psutil >=5
     - binpickle >=0.3.2
