@@ -10,7 +10,7 @@ source:
   sha256: 8a90f85d164d04e48cd41f32c0225f8150142ae3f4d2f5da8403f573731efe9d
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: |
     {{ PYTHON }} -m pip install --no-deps -vv .
@@ -25,7 +25,7 @@ requirements:
     - pandas >=1.0
     - numpy >=1.19
     - scipy >=1.2
-    - numba >=0.51,<0.59
+    - numba >=0.51,<0.60
     - cffi >=1.12.2
     - psutil >=5
     - binpickle >=0.3.2
