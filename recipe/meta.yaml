@@ -1,5 +1,5 @@
 {% set name = "lenskit" %}
-{% set version = "0.14.4" %}
+{% set version = "2025.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8a90f85d164d04e48cd41f32c0225f8150142ae3f4d2f5da8403f573731efe9d
+  sha256: a46dedbe43683aeb40a52fd97ed6fb3b9b06cc3dd62aa3e7be974d90d37d8b02
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script: |
     {{ PYTHON }} -m pip install --no-deps -vv .
