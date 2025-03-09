@@ -30,7 +30,7 @@ requirements:
     - more-itertools >=9.0
     - threadpoolctl >=3.0
     - structlog >=23.2
-    - rich >=13.5,14
+    - rich >=13.5,<14
     - pyzmq >=24
     - click >=8.1,<9
     - pydantic >=2.7,<3
