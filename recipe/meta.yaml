@@ -22,24 +22,56 @@ requirements:
     - flit-core
   run:
     - python >={{ python_min }}
-    - pandas >=1.0
-    - numpy >=1.19
-    - scipy >=1.2
-    - numba >=0.51,<0.60
-    - cffi >=1.12.2
-    - psutil >=5
-    - binpickle >=0.3.2
-    - seedbank >=0.1.0
-    - csr >=0.3.1
-  run_constrained:
-    - scikit-learn >=0.22
+    - typing-extensions >=4.12,<5
+    - pandas >=2.0,<3
+    - numpy >=1.25,<3
+    - scipy >=1.11,<2
+    - pytorch >=2.4,<3
+    - more-itertools >=9.0
+    - threadpoolctl >=3.0
+    - structlog >=23.2
+    - rich >=13.5,14
+    - pyzmq >=24
+    - click >=8.1,<9
+    - pydantic >=2.7,<3
+    - humanize >=4.2,<5
+    - prettytable >=3.14,<4
 
 test:
   requires:
     - python {{ python_min }}
   imports:
     - lenskit
-    - lenskit.algorithms.als
+    - lenskit.als
+    - lenskit.svd
+
+{# outputs:
+  - name: lenskit
+    version: {{ version }}
+  - name: lenskit-funksvd
+    version: {{ version }}
+    requirements:
+      run:
+        - lenskit {{ version }}
+        - numba >=0.56
+  - name: lenskit-sklearn
+    version: {{ version }}
+    requirements:
+      run:
+        - lenskit {{ version }}
+        - scikit-learn >=1.2,<2
+  - name: lenskit-implicit
+    version: {{ version }}
+    requirements:
+      run:
+        - lenskit {{ version }}
+        - implicit >=0.7.2
+  - name: lenskit-hpf
+    version: {{ version }}
+    requirements:
+      run:
+        - lenskit {{ version }}
+        - hpfrec =0.2 #}
 
 about:
   home: https://lenskit.org
