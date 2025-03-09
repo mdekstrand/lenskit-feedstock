@@ -19,7 +19,8 @@ requirements:
   host:
     - python {{ python_min }}
     - pip
-    - flit-core
+    - hatchling =1
+    - hatch-vcs =0.4
   run:
     - python >={{ python_min }}
     - typing-extensions >=4.12,<5
