@@ -45,8 +45,9 @@ test:
     - python {{ python_min }}
   imports:
     - lenskit
+    - lenskit.data
     - lenskit.als
-    - lenskit.svd
+    - lenskit.knn
 
 {# outputs:
   - name: lenskit
