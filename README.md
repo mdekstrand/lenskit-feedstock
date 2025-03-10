@@ -1,9 +1,9 @@
-About lenskit-all-feedstock
-===========================
+About lenskit-feedstock
+=======================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/lenskit-feedstock/blob/main/LICENSE.txt)
 
-Home: https://lenskit.org
+Home: https://lenskit.org/
 
 Package license: MIT
 
@@ -15,7 +15,6 @@ Documentation: https://lkpy.lenskit.org/
 
 LensKit is an open-source toolkit for building, researching, and learning
 about recommender systems.
-
 
 Current build status
 ====================
@@ -41,10 +40,10 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-lenskit--implicit-green.svg)](https://anaconda.org/conda-forge/lenskit-implicit) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/lenskit-implicit.svg)](https://anaconda.org/conda-forge/lenskit-implicit) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/lenskit-implicit.svg)](https://anaconda.org/conda-forge/lenskit-implicit) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/lenskit-implicit.svg)](https://anaconda.org/conda-forge/lenskit-implicit) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-lenskit--sklearn-green.svg)](https://anaconda.org/conda-forge/lenskit-sklearn) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/lenskit-sklearn.svg)](https://anaconda.org/conda-forge/lenskit-sklearn) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/lenskit-sklearn.svg)](https://anaconda.org/conda-forge/lenskit-sklearn) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/lenskit-sklearn.svg)](https://anaconda.org/conda-forge/lenskit-sklearn) |
 
-Installing lenskit-all
-======================
+Installing lenskit
+==================
 
-Installing `lenskit-all` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `lenskit` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
@@ -130,17 +129,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating lenskit-all-feedstock
-==============================
+Updating lenskit-feedstock
+==========================
 
-If you would like to improve the lenskit-all recipe or build a new
+If you would like to improve the lenskit recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/lenskit-all-feedstock are
+Note that all branches in the conda-forge/lenskit-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
