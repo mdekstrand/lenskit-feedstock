@@ -63,8 +63,6 @@ outputs:
       run:
         - ${{ pin_subpackage('lenskit', exact=True) }}
         - numba >=0.56
-      files:
-        - site-packages/lenskit/funksvd.py
   - package:
       name: lenskit-sklearn
     build:
