@@ -3,7 +3,7 @@
 {% set python_min = "3.11" %}
 
 package:
-  name: {{ name|lower }}
+  name: lenskit-all
   version: {{ version }}
 
 source:
@@ -13,8 +13,6 @@ source:
 build:
   number: 0
   noarch: python
-  script: |
-    {{ PYTHON }} -m pip install --no-deps -vv .
 
 test:
   requires:
@@ -27,29 +25,33 @@ test:
 
 outputs:
   - name: lenskit
-    version: {{ version }}
-    host:
-      - python {{ python_min }}
-      - pip
-      - hatchling =1
-      - hatch-vcs =0.4
-    run:
-      - python >={{ python_min }}
-      - typing-extensions >=4.12,<5
-      - pyarrow >=15
-      - pandas >=2.0,<3
-      - numpy >=1.25,<3
-      - scipy >=1.11,<2
-      - pytorch >=2.4,<3
-      - more-itertools >=9.0
-      - threadpoolctl >=3.0
-      - structlog >=23.2
-      - rich >=13.5,<14
-      - pyzmq >=24
-      - click >=8.1,<9
-      - pydantic >=2.7,<3
-      - humanize >=4.2,<5
-      - prettytable >=3.14,<4
+    build:
+      noarch: python
+    script: build.sh    # [not win]
+    script: build.bat   # [win]
+    requirements:
+      host:
+        - python {{ python_min }}
+        - pip
+        - hatchling =1
+        - hatch-vcs =0.4
+      run:
+        - python >={{ python_min }}
+        - typing-extensions >=4.12,<5
+        - pyarrow >=15
+        - pandas >=2.0,<3
+        - numpy >=1.25,<3
+        - scipy >=1.11,<2
+        - pytorch >=2.4,<3
+        - more-itertools >=9.0
+        - threadpoolctl >=3.0
+        - structlog >=23.2
+        - rich >=13.5,<14
+        - pyzmq >=24
+        - click >=8.1,<9
+        - pydantic >=2.7,<3
+        - humanize >=4.2,<5
+        - prettytable >=3.14,<4
     files:
       include:
         - site-packages/lenskit/
@@ -59,35 +61,47 @@ outputs:
         - site-packages/lenskit/funksvd.py
         - site-packages/lenskit/implicit.py
         - site-packages/lenskit/hpf.py
+    test:
+      requires:
+        - python {{ python_min }}
+      imports:
+        - lenskit
+        - lenskit.data
+        - lenskit.als
+        - lenskit.knn
   - name: lenskit-funksvd
-    version: {{ version }}
+    build:
+      noarch: python
     requirements:
       run:
-        - lenskit {{ version }}
+        - {{ pin_subpackage('lenskit', exact=True) }}
         - numba >=0.56
       files:
         - site-packages/lenskit/funksvd.py
   - name: lenskit-sklearn
-    version: {{ version }}
+    build:
+      noarch: python
     requirements:
       run:
-        - lenskit {{ version }}
+        - {{ pin_subpackage('lenskit', exact=True) }}
         - scikit-learn >=1.2,<2
       files:
         - site-packages/lenskit/sklearn/
   - name: lenskit-implicit
-    version: {{ version }}
+    build:
+      noarch: python
     requirements:
       run:
-        - lenskit {{ version }}
+        - {{ pin_subpackage('lenskit', exact=True) }}
         - implicit >=0.7.2
       files:
         - site-packages/lenskit/implicit.py
   - name: lenskit-hpf
-    version: {{ version }}
+    build:
+      noarch: python
     requirements:
       run:
-        - lenskit {{ version }}
+        - {{ pin_subpackage('lenskit', exact=True) }}
         - hpfrec =0.2
       files:
         - site-packages/lenskit/hpf.py
