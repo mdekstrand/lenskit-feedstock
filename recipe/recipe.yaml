@@ -19,6 +19,9 @@ outputs:
       name: lenskit
     build:
       noarch: python
+      script:
+        - python -m pip install . --no-deps -vv
+
     requirements:
       host:
         - python ${{ python_min }}.*
