@@ -4,6 +4,7 @@ context:
   python_min: 3.11
 
 recipe:
+  name: lenskit
   version: ${{ version }}
 
 source:
@@ -46,15 +47,6 @@ outputs:
         - humanize >=4.2,<5
         - prettytable >=3.14,<4
 
-    files:
-      include:
-        - site-packages/lenskit/
-        - python-scripts/lenskit
-      exclude:
-        - site-packages/lenskit/sklearn/
-        - site-packages/lenskit/funksvd.py
-        - site-packages/lenskit/implicit.py
-        - site-packages/lenskit/hpf.py
     tests:
       - python:
           imports:
@@ -62,9 +54,7 @@ outputs:
             - lenskit.data
             - lenskit.als
             - lenskit.knn
-      - requirements:
-          run:
-            - python ${{ python_min }}.*
+  
   - package:
       name: lenskit-funksvd
     build:
@@ -83,8 +73,6 @@ outputs:
       run:
         - ${{ pin_subpackage('lenskit', exact=True) }}
         - scikit-learn >=1.2,<2
-      files:
-        - site-packages/lenskit/sklearn/
   - package:
       name: lenskit-implicit
     build:
@@ -93,8 +81,6 @@ outputs:
       run:
         - ${{ pin_subpackage('lenskit', exact=True) }}
         - implicit >=0.7.2
-      files:
-        - site-packages/lenskit/implicit.py
   - package:
       name: lenskit-hpf
     build:
@@ -103,8 +89,6 @@ outputs:
       run:
         - ${{ pin_subpackage('lenskit', exact=True) }}
         - hpfrec =0.2
-      files:
-        - site-packages/lenskit/hpf.py
 
 about:
   license: MIT
