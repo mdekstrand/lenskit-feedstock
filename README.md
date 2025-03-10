@@ -1,5 +1,5 @@
-About lenskit-feedstock
-=======================
+About lenskit-all-feedstock
+===========================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/lenskit-feedstock/blob/main/LICENSE.txt)
 
@@ -36,27 +36,31 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-lenskit-green.svg)](https://anaconda.org/conda-forge/lenskit) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/lenskit.svg)](https://anaconda.org/conda-forge/lenskit) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/lenskit.svg)](https://anaconda.org/conda-forge/lenskit) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/lenskit.svg)](https://anaconda.org/conda-forge/lenskit) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-lenskit--funksvd-green.svg)](https://anaconda.org/conda-forge/lenskit-funksvd) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/lenskit-funksvd.svg)](https://anaconda.org/conda-forge/lenskit-funksvd) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/lenskit-funksvd.svg)](https://anaconda.org/conda-forge/lenskit-funksvd) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/lenskit-funksvd.svg)](https://anaconda.org/conda-forge/lenskit-funksvd) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-lenskit--hpf-green.svg)](https://anaconda.org/conda-forge/lenskit-hpf) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/lenskit-hpf.svg)](https://anaconda.org/conda-forge/lenskit-hpf) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/lenskit-hpf.svg)](https://anaconda.org/conda-forge/lenskit-hpf) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/lenskit-hpf.svg)](https://anaconda.org/conda-forge/lenskit-hpf) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-lenskit--implicit-green.svg)](https://anaconda.org/conda-forge/lenskit-implicit) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/lenskit-implicit.svg)](https://anaconda.org/conda-forge/lenskit-implicit) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/lenskit-implicit.svg)](https://anaconda.org/conda-forge/lenskit-implicit) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/lenskit-implicit.svg)](https://anaconda.org/conda-forge/lenskit-implicit) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-lenskit--sklearn-green.svg)](https://anaconda.org/conda-forge/lenskit-sklearn) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/lenskit-sklearn.svg)](https://anaconda.org/conda-forge/lenskit-sklearn) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/lenskit-sklearn.svg)](https://anaconda.org/conda-forge/lenskit-sklearn) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/lenskit-sklearn.svg)](https://anaconda.org/conda-forge/lenskit-sklearn) |
 
-Installing lenskit
-==================
+Installing lenskit-all
+======================
 
-Installing `lenskit` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `lenskit-all` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `lenskit` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `lenskit, lenskit-funksvd, lenskit-hpf, lenskit-implicit, lenskit-sklearn` can be installed with `conda`:
 
 ```
-conda install lenskit
+conda install lenskit lenskit-funksvd lenskit-hpf lenskit-implicit lenskit-sklearn
 ```
 
 or with `mamba`:
 
 ```
-mamba install lenskit
+mamba install lenskit lenskit-funksvd lenskit-hpf lenskit-implicit lenskit-sklearn
 ```
 
 It is possible to list all of the versions of `lenskit` available on your platform with `conda`:
@@ -126,17 +130,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating lenskit-feedstock
-==========================
+Updating lenskit-all-feedstock
+==============================
 
-If you would like to improve the lenskit recipe or build a new
+If you would like to improve the lenskit-all recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/lenskit-feedstock are
+Note that all branches in the conda-forge/lenskit-all-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
