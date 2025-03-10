@@ -49,33 +49,50 @@ test:
     - lenskit.als
     - lenskit.knn
 
-{# outputs:
+outputs:
   - name: lenskit
     version: {{ version }}
+    files:
+      include:
+        - site-packages/lenskit/
+        - python-scripts/lenskit
+      exclude:
+        - site-packages/lenskit/sklearn/
+        - site-packages/lenskit/funksvd.py
+        - site-packages/lenskit/implicit.py
+        - site-packages/lenskit/hpf.py
   - name: lenskit-funksvd
     version: {{ version }}
     requirements:
       run:
         - lenskit {{ version }}
         - numba >=0.56
+      files:
+        - site-packages/lenskit/funksvd.py
   - name: lenskit-sklearn
     version: {{ version }}
     requirements:
       run:
         - lenskit {{ version }}
         - scikit-learn >=1.2,<2
+      files:
+        - site-packages/lenskit/sklearn/
   - name: lenskit-implicit
     version: {{ version }}
     requirements:
       run:
         - lenskit {{ version }}
         - implicit >=0.7.2
+      files:
+        - site-packages/lenskit/implicit.py
   - name: lenskit-hpf
     version: {{ version }}
     requirements:
       run:
         - lenskit {{ version }}
-        - hpfrec =0.2 #}
+        - hpfrec =0.2
+      files:
+        - site-packages/lenskit/hpf.py
 
 about:
   home: https://lenskit.org
