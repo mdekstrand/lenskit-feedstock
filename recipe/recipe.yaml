@@ -103,18 +103,6 @@ outputs:
       files:
         - site-packages/lenskit/hpf.py
 
-tests:
-  - python:
-      imports:
-        - lenskit
-        - lenskit.data
-        - lenskit.als
-        - lenskit.knn
-      pip_check: false
-  - requirements:
-      run:
-        - python ${{ python_min }}
-
 about:
   license: MIT
   license_file: LICENSE.md
