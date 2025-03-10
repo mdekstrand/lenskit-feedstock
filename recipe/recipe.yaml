@@ -59,6 +59,8 @@ outputs:
       name: lenskit-funksvd
     build:
       noarch: python
+      script:
+      - 'true'
     requirements:
       run:
         - ${{ pin_subpackage('lenskit', exact=True) }}
@@ -67,6 +69,8 @@ outputs:
       name: lenskit-sklearn
     build:
       noarch: python
+      script:
+      - 'true'
     requirements:
       run:
         - ${{ pin_subpackage('lenskit', exact=True) }}
@@ -75,6 +79,8 @@ outputs:
       name: lenskit-implicit
     build:
       noarch: python
+      script:
+      - 'true'
     requirements:
       run:
         - ${{ pin_subpackage('lenskit', exact=True) }}
@@ -83,6 +89,8 @@ outputs:
       name: lenskit-hpf
     build:
       noarch: python
+      script:
+      - 'true'
     requirements:
       run:
         - ${{ pin_subpackage('lenskit', exact=True) }}
