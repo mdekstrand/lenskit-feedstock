@@ -65,6 +65,10 @@ outputs:
       run:
         - ${{ pin_subpackage('lenskit', exact=True) }}
         - numba >=0.56
+    tests:
+      - python:
+          imports:
+          - lenskit.funksvd
   - package:
       name: lenskit-sklearn
     build:
@@ -75,6 +79,10 @@ outputs:
       run:
         - ${{ pin_subpackage('lenskit', exact=True) }}
         - scikit-learn >=1.2,<2
+    tests:
+      - python:
+          imports:
+          - lenskit.sklearn.svd
   - package:
       name: lenskit-implicit
     build:
@@ -85,6 +93,10 @@ outputs:
       run:
         - ${{ pin_subpackage('lenskit', exact=True) }}
         - implicit >=0.7.2
+    tests:
+      - python:
+          imports:
+          - lenskit.implicit
   - package:
       name: lenskit-hpf
     build:
@@ -95,6 +107,10 @@ outputs:
       run:
         - ${{ pin_subpackage('lenskit', exact=True) }}
         - hpfrec =0.2
+    tests:
+      - python:
+          imports:
+          - lenskit.hpf
 
 about:
   license: MIT
