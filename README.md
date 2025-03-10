@@ -3,7 +3,7 @@ About lenskit-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/lenskit-feedstock/blob/main/LICENSE.txt)
 
-Home: https://lenskit.org
+Home: https://lenskit.org/
 
 Package license: MIT
 
@@ -15,7 +15,6 @@ Documentation: https://lkpy.lenskit.org/
 
 LensKit is an open-source toolkit for building, researching, and learning
 about recommender systems.
-
 
 Current build status
 ====================
@@ -36,6 +35,10 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-lenskit-green.svg)](https://anaconda.org/conda-forge/lenskit) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/lenskit.svg)](https://anaconda.org/conda-forge/lenskit) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/lenskit.svg)](https://anaconda.org/conda-forge/lenskit) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/lenskit.svg)](https://anaconda.org/conda-forge/lenskit) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-lenskit--funksvd-green.svg)](https://anaconda.org/conda-forge/lenskit-funksvd) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/lenskit-funksvd.svg)](https://anaconda.org/conda-forge/lenskit-funksvd) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/lenskit-funksvd.svg)](https://anaconda.org/conda-forge/lenskit-funksvd) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/lenskit-funksvd.svg)](https://anaconda.org/conda-forge/lenskit-funksvd) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-lenskit--hpf-green.svg)](https://anaconda.org/conda-forge/lenskit-hpf) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/lenskit-hpf.svg)](https://anaconda.org/conda-forge/lenskit-hpf) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/lenskit-hpf.svg)](https://anaconda.org/conda-forge/lenskit-hpf) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/lenskit-hpf.svg)](https://anaconda.org/conda-forge/lenskit-hpf) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-lenskit--implicit-green.svg)](https://anaconda.org/conda-forge/lenskit-implicit) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/lenskit-implicit.svg)](https://anaconda.org/conda-forge/lenskit-implicit) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/lenskit-implicit.svg)](https://anaconda.org/conda-forge/lenskit-implicit) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/lenskit-implicit.svg)](https://anaconda.org/conda-forge/lenskit-implicit) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-lenskit--sklearn-green.svg)](https://anaconda.org/conda-forge/lenskit-sklearn) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/lenskit-sklearn.svg)](https://anaconda.org/conda-forge/lenskit-sklearn) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/lenskit-sklearn.svg)](https://anaconda.org/conda-forge/lenskit-sklearn) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/lenskit-sklearn.svg)](https://anaconda.org/conda-forge/lenskit-sklearn) |
 
 Installing lenskit
 ==================
@@ -47,16 +50,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `lenskit` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `lenskit, lenskit-funksvd, lenskit-hpf, lenskit-implicit, lenskit-sklearn` can be installed with `conda`:
 
 ```
-conda install lenskit
+conda install lenskit lenskit-funksvd lenskit-hpf lenskit-implicit lenskit-sklearn
 ```
 
 or with `mamba`:
 
 ```
-mamba install lenskit
+mamba install lenskit lenskit-funksvd lenskit-hpf lenskit-implicit lenskit-sklearn
 ```
 
 It is possible to list all of the versions of `lenskit` available on your platform with `conda`:
