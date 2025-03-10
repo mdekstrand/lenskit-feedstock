@@ -21,7 +21,7 @@ outputs:
       noarch: python
     requirements:
       host:
-        - python ${{ python_min }}
+        - python ${{ python_min }}.*
         - pip
         - hatchling =1
         - hatch-vcs =0.4
@@ -61,7 +61,7 @@ outputs:
             - lenskit.knn
       - requirements:
           run:
-            - python ${{ python_min }}
+            - python ${{ python_min }}.*
   - package:
       name: lenskit-funksvd
     build:
