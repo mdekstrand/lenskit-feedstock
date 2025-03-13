@@ -1,7 +1,7 @@
 context:
   name: lenskit
-  version: 2025.1.1
-  python_min: 3.11
+  version: "2025.2.0"
+  python_min: '3.11'
 
 recipe:
   name: lenskit
@@ -9,7 +9,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: a46dedbe43683aeb40a52fd97ed6fb3b9b06cc3dd62aa3e7be974d90d37d8b02
+  sha256: 246acc10b2c07c6a33f65e5eaf9db749caa52e76a952d0eaf7c5d4c56ffc9009
 
 build:
   number: 0
@@ -54,13 +54,13 @@ outputs:
             - lenskit.data
             - lenskit.als
             - lenskit.knn
-  
+
   - package:
       name: lenskit-funksvd
     build:
       noarch: python
       script:
-      - 'true'
+        - 'true'
     requirements:
       run:
         - ${{ pin_subpackage('lenskit', exact=True) }}
@@ -68,13 +68,13 @@ outputs:
     tests:
       - python:
           imports:
-          - lenskit.funksvd
+            - lenskit.funksvd
   - package:
       name: lenskit-sklearn
     build:
       noarch: python
       script:
-      - 'true'
+        - 'true'
     requirements:
       run:
         - ${{ pin_subpackage('lenskit', exact=True) }}
@@ -82,13 +82,13 @@ outputs:
     tests:
       - python:
           imports:
-          - lenskit.sklearn.svd
+            - lenskit.sklearn.svd
   - package:
       name: lenskit-implicit
     build:
       noarch: python
       script:
-      - 'true'
+        - 'true'
     requirements:
       run:
         - ${{ pin_subpackage('lenskit', exact=True) }}
@@ -96,13 +96,13 @@ outputs:
     tests:
       - python:
           imports:
-          - lenskit.implicit
+            - lenskit.implicit
   - package:
       name: lenskit-hpf
     build:
       noarch: python
       script:
-      - 'true'
+        - 'true'
     requirements:
       run:
         - ${{ pin_subpackage('lenskit', exact=True) }}
@@ -110,7 +110,7 @@ outputs:
     tests:
       - python:
           imports:
-          - lenskit.hpf
+            - lenskit.hpf
 
 about:
   license: MIT
