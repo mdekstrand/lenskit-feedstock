@@ -26,7 +26,8 @@ outputs:
 
     requirements:
       build:
-        - ${{ compiler('rust') }}
+        - ${{ stdlib("c") }}
+        - ${{ compiler("rust") }}
       host:
         - python =3.11
         - pip
