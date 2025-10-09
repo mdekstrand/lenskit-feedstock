@@ -29,7 +29,7 @@ outputs:
         - ${{ stdlib("c") }}
         - ${{ compiler("rust") }}
       host:
-        - python ${{ python_min }}
+        - python ${{ python_min }}.*
         - pip
         - maturin >=1,<2
       run:
@@ -92,7 +92,7 @@ outputs:
         - "true"
     requirements:
       host:
-        - ${{ python_min }}
+        - ${{ python_min }}.*
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage('lenskit') }}
@@ -105,7 +105,7 @@ outputs:
         - "true"
     requirements:
       host:
-        - python ${{ python_min }}
+        - python ${{ python_min }}.*
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage('lenskit') }}
@@ -139,7 +139,7 @@ outputs:
         - "true"
     requirements:
       host:
-        - python ${{ python_min }}
+        - python ${{ python_min }}.*
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage('lenskit') }}
@@ -173,7 +173,7 @@ outputs:
         - "true"
     requirements:
       host:
-        - python ${{ python_min }}
+        - python ${{ python_min }}.*
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage('lenskit') }}
@@ -207,7 +207,7 @@ outputs:
         - "true"
     requirements:
       host:
-        - python ${{ python_min }}
+        - python ${{ python_min }}.*
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage('lenskit') }}
@@ -241,7 +241,7 @@ outputs:
         - "true"
     requirements:
       host:
-        - python ${{ python_min }}
+        - python ${{ python_min }}.*
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage('lenskit') }}
