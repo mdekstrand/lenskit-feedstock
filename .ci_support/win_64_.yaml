@@ -1,7 +1,11 @@
+c_stdlib:
+- vs
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
+python_min:
+- '3.10'
 rust_compiler:
 - rust
 target_platform:
