@@ -7,12 +7,12 @@ recipe:
   name: lenskit
   version: ${{ version }}
 
-build:
-  number: 0
-
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
   sha256: 6a24a2397413cf1ec8d6919c8683e5b23eb7ff7d74226d433eb17245da13a01c
+
+build:
+  number: 0
 
 outputs:
   - package:
