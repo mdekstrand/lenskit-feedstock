@@ -170,6 +170,8 @@ outputs:
       name: lenskit-hpf
     build:
       noarch: python
+      skip:
+        - win
       script:
         - "true"
     requirements:
