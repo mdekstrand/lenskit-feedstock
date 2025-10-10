@@ -34,6 +34,7 @@ outputs:
         - maturin >=1,<2
       run:
         - python >=${{ python_min }}
+        - ${{ compiler("c++") }}
         - typing-extensions >=4.12,<5
         - pyarrow >=20,<21
         - pandas >=2.0,<3
