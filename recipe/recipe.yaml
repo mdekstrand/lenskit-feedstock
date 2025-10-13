@@ -1,6 +1,6 @@
 context:
   name: lenskit
-  version: "2025.2.0"
+  version: "2025.3.1"
   python_min: '3.11'
 
 recipe:
@@ -9,30 +9,34 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 246acc10b2c07c6a33f65e5eaf9db749caa52e76a952d0eaf7c5d4c56ffc9009
+  sha256: 6a24a2397413cf1ec8d6919c8683e5b23eb7ff7d74226d433eb17245da13a01c
 
 build:
   number: 0
-  noarch: python
 
 outputs:
   - package:
       name: lenskit
+
     build:
-      noarch: python
+      python:
+        version_independent: true
       script:
-        - python -m pip install . --no-deps -vv
+        - python -m pip install --no-deps --no-build-isolation -vv .
 
     requirements:
+      build:
+        - ${{ stdlib("c") }}
+        - ${{ compiler("rust") }}
       host:
-        - python =${{ python_min }}
+        - python ${{ python_min }}.*
         - pip
-        - hatchling =1
-        - hatch-vcs =0.4
+        - maturin >=1,<2
       run:
         - python >=${{ python_min }}
+        - ${{ compiler("cxx") }}
         - typing-extensions >=4.12,<5
-        - pyarrow >=15
+        - pyarrow >=20,<21
         - pandas >=2.0,<3
         - numpy >=1.25,<3
         - scipy >=1.11,<2
@@ -43,9 +47,16 @@ outputs:
         - rich >=13.5,<14
         - pyzmq >=24
         - click >=8.1,<9
+        - requests >=2.28,<3
+        - psutil >=6
+        - py-cpuinfo >=9.0
         - pydantic >=2.7,<3
+        - pydantic-settings >=2.8,<3
         - humanize >=4.2,<5
         - prettytable >=3.14,<4
+        - xopen >=2.0,<3
+        - lazy-loader >=0.4
+        - deepmerge >=2.0,<3
 
     tests:
       - python:
@@ -54,63 +65,195 @@ outputs:
             - lenskit.data
             - lenskit.als
             - lenskit.knn
+          pip_check: false
+      - script:
+          - python -m lenskit --verbose doctor --full
+      - script:
+          - pytest -m "not slow" tests
+        files:
+          source:
+            - tests/
+            - conftest.py
+            - data/
+            - pipelines/
+            - pyproject.toml
+        requirements:
+          run:
+            - pytest >=8.2,<9
+            - pytest-benchmark =4
+            - pytest-doctestplus >=1.2.1,<2
+            - hypothesis >=6.16
+            - pyyaml ~=6.0
 
   - package:
       name: lenskit-funksvd
     build:
       noarch: python
       script:
-        - 'true'
+        - "true"
     requirements:
+      host:
+        - python ${{ python_min }}.*
       run:
-        - ${{ pin_subpackage('lenskit', exact=True) }}
-        - numba >=0.56
-    tests:
-      - python:
-          imports:
-            - lenskit.funksvd
+        - python >=${{ python_min }}
+        - lenskit >=2025.3
+
   - package:
       name: lenskit-sklearn
     build:
       noarch: python
       script:
-        - 'true'
+        - "true"
     requirements:
+      host:
+        - python ${{ python_min }}.*
       run:
-        - ${{ pin_subpackage('lenskit', exact=True) }}
+        - python >=${{ python_min }}
+        - ${{ pin_subpackage('lenskit') }}
         - scikit-learn >=1.2,<2
     tests:
       - python:
           imports:
             - lenskit.sklearn.svd
+          pip_check: false
+      - script:
+          - pytest -m "not slow" tests/sklearn
+        files:
+          source:
+            - tests/
+            - conftest.py
+            - data/
+            - pyproject.toml
+        requirements:
+          run:
+            - pytest >=8.2,<9
+            - pytest-benchmark =4
+            - pytest-doctestplus >=1.2.1,<2
+            - hypothesis >=6.16
+            - pyyaml ~=6.0
+
   - package:
       name: lenskit-implicit
     build:
       noarch: python
       script:
-        - 'true'
+        - "true"
     requirements:
+      host:
+        - python ${{ python_min }}.*
       run:
-        - ${{ pin_subpackage('lenskit', exact=True) }}
+        - python >=${{ python_min }}
+        - ${{ pin_subpackage('lenskit') }}
         - implicit >=0.7.2
     tests:
       - python:
           imports:
             - lenskit.implicit
+          pip_check: false
+      - script:
+          - pytest -m "not slow" tests/implicit
+        files:
+          source:
+            - tests/
+            - conftest.py
+            - data/
+            - pyproject.toml
+        requirements:
+          run:
+            - pytest >=8.2,<9
+            - pytest-benchmark =4
+            - pytest-doctestplus >=1.2.1,<2
+            - hypothesis >=6.16
+            - pyyaml ~=6.0
+
   - package:
       name: lenskit-hpf
     build:
       noarch: python
+      skip:
+        - win
       script:
-        - 'true'
+        - "true"
     requirements:
+      host:
+        - python ${{ python_min }}.*
       run:
-        - ${{ pin_subpackage('lenskit', exact=True) }}
+        - python >=${{ python_min }}
+        - ${{ pin_subpackage('lenskit') }}
         - hpfrec =0.2
     tests:
       - python:
           imports:
             - lenskit.hpf
+          pip_check: false
+      - script:
+          - pytest -m "not slow" tests/hpf
+        files:
+          source:
+            - tests/
+            - conftest.py
+            - data/
+            - pyproject.toml
+        requirements:
+          run:
+            - pytest >=8.2,<9
+            - pytest-benchmark =4
+            - pytest-doctestplus >=1.2.1,<2
+            - hypothesis >=6.16
+            - pyyaml ~=6.0
+
+  - package:
+      name: lenskit-gnn
+    build:
+      noarch: python
+      script:
+        - "true"
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+      run:
+        - python >=${{ python_min }}
+        - ${{ pin_subpackage('lenskit') }}
+        - torch-geometric >=2.6,<3
+    tests:
+      - python:
+          imports:
+            - lenskit.graphs.lightgcn
+          pip_check: false
+      - script:
+          - pytest -m "not slow" tests/graphs
+        files:
+          source:
+            - tests/
+            - conftest.py
+            - data/
+            - pyproject.toml
+        requirements:
+          run:
+            - pytest >=8.2,<9
+            - pytest-benchmark =4
+            - pytest-doctestplus >=1.2.1,<2
+            - hypothesis >=6.16
+            - pyyaml ~=6.0
+
+  - package:
+      name: lenskit-tune
+    build:
+      noarch: python
+      skip:
+        - win
+      script:
+        - "true"
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+      run:
+        - python >=${{ python_min }}
+        - ${{ pin_subpackage('lenskit') }}
+        - ray-tune >=2.42,<3
+    tests:
+      - script:
+          - lenskit tune --help
 
 about:
   license: MIT
@@ -119,7 +262,6 @@ about:
   description: |
     LensKit is an open-source toolkit for building, researching, and learning
     about recommender systems.
-
 
   homepage: https://lenskit.org
   repository: https://github.com/lenskit/lkpy
