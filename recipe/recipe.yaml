@@ -1,6 +1,6 @@
 context:
   name: lenskit
-  version: "2025.3.1"
+  version: "2025.3.2"
   python_min: '3.11'
 
 recipe:
@@ -9,7 +9,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 6a24a2397413cf1ec8d6919c8683e5b23eb7ff7d74226d433eb17245da13a01c
+  sha256: 3784442ff3cd4ca224997ab18f2afafe87e30fad6b493de45dc9d57682a29be5
 
 build:
   number: 0
