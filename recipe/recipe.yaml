@@ -42,7 +42,7 @@ outputs:
         - python >=${{ python_min }}
         - ${{ compiler("cxx") }}
         - typing-extensions >=4.12,<5
-        - pyarrow >=20,<21
+        - pyarrow >=20
         - pandas >=2.0,<3
         - numpy >=1.25,<3
         - scipy >=1.11,<2
