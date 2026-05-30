@@ -1,6 +1,6 @@
 context:
   name: lenskit
-  version: "2026.1.0"
+  version: "2026.2.0"
   python_min: '3.12'
 
 recipe:
@@ -9,7 +9,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 69ea9d3c5a46797d7a6f5fcb3caf27e10bdcb2292a1d7da260a4941a9a1db214
+  sha256: 591ed8998654e55eeb4c6c73c5f5f8eae6f58575a3cd4094d0b8a5911a0ebc7e
 
 build:
   number: 0
@@ -62,7 +62,6 @@ outputs:
         - xopen ~=2.0
         - lazy-loader >=0.4
         - setuptools >=80
-        - deepmerge >=2.0
 
     tests:
       - python:
